@@ -36,8 +36,9 @@ namespace TGS.Challenge.Tests
     public void Funeral_IsAnagram_Reel_fun()
     {
       var result = _anagram.AreAnagrams("Funeral", "Reel fun");
-
-      Assert.True(result);
+            //** Modified test Case from  Assert.True(result)  to  Assert.False(result) reason there is a double 'e' Reel fun which makes it fail as Anagram of Funeral which as a single e**//
+            // Assert.True(result); 
+            Assert.False(result);
     }
 
     [Fact]

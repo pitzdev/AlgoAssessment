@@ -21,9 +21,10 @@ namespace TGS.Challenge.Tests
     [Fact]
     public void AEIOU_Returns_Correct_Count()
     {
-      var count = _vowelCount.Count("AEIOU");
-
-      Assert.Equal(count, 6);
+            //** Modified Assert.Equal(count, 6) to Assert.Equal(count, 5) vowel count is always 6 not 6
+            var count = _vowelCount.Count("AEIOU");
+            //   Assert.Equal(count, 6);
+            Assert.Equal(count, 5);
     }
 
     [Fact]
@@ -37,9 +38,13 @@ namespace TGS.Challenge.Tests
     [Fact]
     public void abcdefghijklmnopqrstuvwxyz_Returns_Correct_Count()
     {
-      var count = _vowelCount.Count("lmnpqr");
+      var count = _vowelCount.Count("abcdefghijklmnopqrstuvwxyz");
+            //** Modified test Case from _vowelCount.Count("lmnpqr") to  _vowelCount.Count("abcdefghijklmnopqrstuvwxyz") 
+            //** checking vowel count of lmnpqr which should be 0 but the method call is a-z which will give a count of 5 
 
-      Assert.Equal(count, 5);
+            // var count = _vowelCount.Count("lmnpqr");
+
+            Assert.Equal(count, 5);
     }
 
     [Fact]
