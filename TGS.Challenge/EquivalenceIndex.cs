@@ -19,7 +19,30 @@ namespace TGS.Challenge
     {
       public int Find(int[] numbers)
       {
-        return -99;
+            int i, j;
+            int leftSum, rightSum;
+            for(i =0; i < numbers.Length; i++)
+            {
+                leftSum = 0;
+                rightSum = 0;
+                //Get Left Sum
+                for(j = 0; j < i; j++)
+                {
+                    leftSum += numbers[j];
+                }
+
+                //Get Right Sum
+                for(j = i + 1; j < numbers.Length; j++)
+                {
+                    rightSum += numbers[j];
+                }
+
+                if(leftSum == rightSum)
+                {
+                    return i;
+                }
+            }
+        return -1;
       }
     }
 }

@@ -25,20 +25,23 @@ namespace TGS.Challenge
     {
       public bool AreAnagrams(string word1, string word2)
       {
-             
+             //Replace Special Character and White spaces
             word1 = Regex.Replace(word1, @"[^0-9a-zA-Z]+", string.Empty).ToLower();
             word2 = Regex.Replace(word2, @"[^0-9a-zA-Z]+", string.Empty).ToLower();
 
+            //Check of any Word is Empty
             if (word1.Length ==0 || word2.Length == 0)
             {
                 throw new System.ArgumentException();
             }
+            //Check if both words Length are Equal
             if (word1.Length != word2.Length) return false;
 
-                int word1Count = 0;
+            int word1Count = 0;
             int word2Count = 0;
 
-            for(int i = 0; i < word1.Length -1; i++)
+            //Check if word1 is Anagrams of word2
+            for (int i = 0; i < word1.Length -1; i++)
             {
                 word1Count++;
                 word2Count = word1.Length - 1;
