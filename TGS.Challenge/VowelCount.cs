@@ -16,7 +16,21 @@ namespace TGS.Challenge
     {
         public int Count(string value)
         {
-            return -1;
+            int vowelCount = 0;
+            if (value.Length == 0)
+            {
+                throw new ArgumentException();
+            }
+            value = value.ToLower();
+            for(int i= 0; i < value.Length; i++)
+            {
+                char c = value[i];
+                if(c.Equals('a') || c.Equals('e') || c.Equals('i') || c.Equals('o') || c.Equals('u'))
+                {
+                    vowelCount++;
+                }
+            }
+            return vowelCount;
         }
     }
 }
