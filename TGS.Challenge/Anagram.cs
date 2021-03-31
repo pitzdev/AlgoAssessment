@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 namespace TGS.Challenge
 {
   /*
@@ -24,6 +25,30 @@ namespace TGS.Challenge
     {
       public bool AreAnagrams(string word1, string word2)
       {
+             
+            word1 = Regex.Replace(word1, @"[^0-9a-zA-Z]+", string.Empty).ToLower();
+            word2 = Regex.Replace(word2, @"[^0-9a-zA-Z]+", string.Empty).ToLower();
+
+            if (word1.Length ==0 || word2.Length == 0)
+            {
+                throw new System.ArgumentException();
+            }
+            if (word1.Length != word2.Length) return false;
+
+                int word1Count = 0;
+            int word2Count = 0;
+
+            for(int i = 0; i < word1.Length -1; i++)
+            {
+                word1Count++;
+                word2Count = word1.Length - 1;
+                if(word2.Contains(word1[i]) && word1Count == word2Count)
+                {
+                    return true;
+                }
+
+            }
+
         return false;
       }
     }
